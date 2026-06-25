@@ -11,7 +11,6 @@ import {
   generateOrganizationSchema,
 } from "@/lib/structured-data";
 import type { Locale } from "@/config/site";
-import "@/app/globals.css";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -34,16 +33,12 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} suppressHydrationWarning>
-      <body className="flex min-h-screen flex-col">
-        <NextIntlClientProvider messages={messages}>
-          <JsonLd data={generateLocalBusinessSchema(locale as Locale)} />
-          <JsonLd data={generateOrganizationSchema()} />
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <NextIntlClientProvider messages={messages}>
+      <JsonLd data={generateLocalBusinessSchema(locale as Locale)} />
+      <JsonLd data={generateOrganizationSchema()} />
+      <Header />
+      <main className="flex-1">{children}</main>
+      <Footer />
+    </NextIntlClientProvider>
   );
 }
