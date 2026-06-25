@@ -1,8 +1,6 @@
 import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/container";
 import { Link } from "@/i18n/navigation";
-import { Phone, Mail, MapPin } from "lucide-react";
-import { siteConfig } from "@/config/site";
 
 export function Footer() {
   const t = useTranslations("footer");
@@ -11,7 +9,7 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-foreground text-background">
       <Container>
-        <div className="grid gap-8 py-12 md:grid-cols-3">
+        <div className="grid gap-8 py-12 md:grid-cols-2">
           <div>
             <h3 className="mb-4 text-lg font-bold">ГидроТепло</h3>
             <p className="text-sm text-background/70">{t("description")}</p>
@@ -36,24 +34,6 @@ export function Footer() {
                 {nav("faq")}
               </Link>
             </nav>
-          </div>
-
-          <div>
-            <h4 className="mb-4 font-semibold">{t("contacts")}</h4>
-            <div className="flex flex-col gap-3 text-sm text-background/70">
-              <div className="flex items-center gap-2">
-                <Phone size={16} />
-                <span>{siteConfig.contact.phone}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail size={16} />
-                <span>{siteConfig.contact.email}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <MapPin size={16} />
-                <span>{siteConfig.contact.address.ru}</span>
-              </div>
-            </div>
           </div>
         </div>
 
