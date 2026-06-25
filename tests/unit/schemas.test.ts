@@ -37,6 +37,7 @@ describe("serviceSchema", () => {
     const result = serviceSchema.safeParse({
       slug: "test",
       icon: "Flame",
+      image: "https://example.com/test.jpg",
       title: { ru: "Тест", en: "Test" },
       description: { ru: "Описание", en: "Description" },
       longDescription: { ru: "Длинное", en: "Long" },

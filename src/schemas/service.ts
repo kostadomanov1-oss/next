@@ -3,6 +3,7 @@ import { z } from "zod";
 export const serviceSchema = z.object({
   slug: z.string(),
   icon: z.string(),
+  image: z.string(),
   title: z.object({ ru: z.string(), en: z.string() }),
   description: z.object({ ru: z.string(), en: z.string() }),
   longDescription: z.object({ ru: z.string(), en: z.string() }),

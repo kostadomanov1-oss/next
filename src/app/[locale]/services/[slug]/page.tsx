@@ -1,5 +1,6 @@
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import { createMetadata } from "@/lib/metadata";
 import { getServiceBySlug, getAllServiceSlugs } from "@/data/services";
 import type { Locale } from "@/config/site";
@@ -75,12 +76,24 @@ export default async function ServicePage({ params }: Props) {
         />
       )}
 
-      <Section className="bg-gradient-to-br from-primary/5 to-background">
-        <h1 className="mb-4 text-4xl font-bold">{service.title[loc]}</h1>
-        <p className="max-w-2xl text-lg text-muted-foreground">
-          {service.longDescription[loc]}
-        </p>
-      </Section>
+      <section className="relative overflow-hidden py-20 lg:py-28">
+        <Image
+          src={service.image}
+          alt={service.title[loc]}
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-foreground/60" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h1 className="mb-4 text-4xl font-bold text-white">
+            {service.title[loc]}
+          </h1>
+          <p className="max-w-2xl text-lg text-white/80">
+            {service.longDescription[loc]}
+          </p>
+        </div>
+      </section>
 
       <Section>
         <h2 className="mb-8 text-2xl font-bold">
@@ -126,17 +139,25 @@ export default async function ServicePage({ params }: Props) {
             {relatedServices.map(
               (rs) =>
                 rs && (
-                  <Card key={rs.slug}>
-                    <h3 className="mb-2 font-semibold">{rs.title[loc]}</h3>
-                    <p className="mb-4 text-sm text-muted-foreground">
-                      {rs.description[loc]}
-                    </p>
-                    <Link href={`/services/${rs.slug}`}>
-                      <Button variant="outline" size="sm">
-                        {loc === "ru" ? "Подробнее" : "Learn More"}
-                      </Button>
-                    </Link>
-                  </Card>
+                  <Link key={rs.slug} href={`/services/${rs.slug}`} className="group">
+                    <div className="overflow-hidden rounded-lg border border-border bg-card shadow-sm transition-all hover:shadow-lg">
+                      <div className="relative h-40 w-full overflow-hidden">
+                        <Image
+                          src={rs.image}
+                          alt={rs.title[loc]}
+                          fill
+                          className="object-cover transition-transform duration-300 group-hover:scale-105"
+                          sizes="(max-width: 1024px) 50vw, 33vw"
+                        />
+                      </div>
+                      <div className="p-4">
+                        <h3 className="mb-1 font-semibold">{rs.title[loc]}</h3>
+                        <p className="text-sm text-muted-foreground">
+                          {rs.description[loc]}
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
                 ),
             )}
           </div>

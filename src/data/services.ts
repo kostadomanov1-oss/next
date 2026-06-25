@@ -4,6 +4,7 @@ const rawServices: Service[] = [
   {
     slug: "heating",
     icon: "Flame",
+    image: "https://images.unsplash.com/photo-1585595363541-8b3409e45619?w=800&q=80",
     title: { ru: "Отопление", en: "Heating" },
     description: {
       ru: "Проектирование и монтаж систем отопления для частных домов и коммерческих объектов",
@@ -104,6 +105,7 @@ const rawServices: Service[] = [
   {
     slug: "boiler-installation",
     icon: "Factory",
+    image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80",
     title: { ru: "Котельные", en: "Boiler Rooms" },
     description: {
       ru: "Проектирование и монтаж котельных любой мощности",
@@ -177,6 +179,7 @@ const rawServices: Service[] = [
   {
     slug: "floor-heating",
     icon: "Thermometer",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80",
     title: { ru: "Тёплые полы", en: "Underfloor Heating" },
     description: {
       ru: "Водяные и электрические тёплые полы для максимального комфорта",
@@ -250,6 +253,7 @@ const rawServices: Service[] = [
   {
     slug: "water-supply",
     icon: "Droplets",
+    image: "https://images.unsplash.com/photo-1585128792020-803d29415281?w=800&q=80",
     title: { ru: "Водоснабжение", en: "Water Supply" },
     description: {
       ru: "Монтаж систем холодного и горячего водоснабжения",
@@ -323,6 +327,7 @@ const rawServices: Service[] = [
   {
     slug: "sewage",
     icon: "PipetteIcon",
+    image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80",
     title: { ru: "Канализация", en: "Sewage Systems" },
     description: {
       ru: "Монтаж внутренней и наружной канализации",
@@ -394,6 +399,7 @@ const rawServices: Service[] = [
   {
     slug: "maintenance",
     icon: "Wrench",
+    image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80",
     title: { ru: "Сервис и обслуживание", en: "Service & Maintenance" },
     description: {
       ru: "Техническое обслуживание и ремонт инженерных систем",

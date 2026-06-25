@@ -1,5 +1,6 @@
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import { createMetadata } from "@/lib/metadata";
 import { getProjectBySlug, getAllProjectSlugs } from "@/data/projects";
 import { getServiceBySlug } from "@/data/services";
@@ -44,15 +45,26 @@ export default async function ProjectPage({ params }: Props) {
 
   return (
     <>
-      <Section className="bg-gradient-to-br from-primary/5 to-background">
-        <h1 className="mb-4 text-4xl font-bold">{project.title[loc]}</h1>
-        <p className="max-w-2xl text-lg text-muted-foreground">
-          {project.description[loc]}
-        </p>
-      </Section>
+      <section className="relative overflow-hidden py-20 lg:py-28">
+        <Image
+          src={project.image}
+          alt={project.title[loc]}
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-foreground/60" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h1 className="mb-4 text-4xl font-bold text-white">
+            {project.title[loc]}
+          </h1>
+          <p className="max-w-2xl text-lg text-white/80">
+            {project.description[loc]}
+          </p>
+        </div>
+      </section>
 
       <Section>
-        <div className="mb-8 h-64 rounded-lg bg-muted lg:h-96" />
         <div className="grid gap-6 sm:grid-cols-3">
           <Card>
             <p className="text-sm text-muted-foreground">
