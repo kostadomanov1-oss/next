@@ -111,11 +111,8 @@ const messages = {
     title: "Contact Us",
     subtitle: "Get in touch for a free consultation",
     form: {
-      name: "Name",
-      phone: "Phone",
-      email: "Email",
       message: "Message",
-      service: "Service of Interest",
+      placeholder: "Describe your question or task...",
       submit: "Submit Request",
       success: "Request sent! We will contact you shortly.",
       error: "An error occurred. Please try again.",

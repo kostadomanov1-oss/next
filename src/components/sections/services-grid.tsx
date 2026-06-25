@@ -23,8 +23,8 @@ export function ServicesGridSection() {
             href={`/services/${service.slug}`}
             className="group"
           >
-            <div className="overflow-hidden rounded-lg border border-border bg-card shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
-              <div className="relative h-48 w-full overflow-hidden">
+            <div className="flex h-full flex-col overflow-hidden rounded-lg border border-border bg-card shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
+              <div className="relative h-48 w-full shrink-0 overflow-hidden">
                 <Image
                   src={service.image}
                   alt={service.title[locale]}
@@ -33,11 +33,11 @@ export function ServicesGridSection() {
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
-              <div className="p-6">
+              <div className="flex flex-1 flex-col p-6">
                 <h3 className="mb-2 text-lg font-semibold">
                   {service.title[locale]}
                 </h3>
-                <p className="mb-4 text-sm text-muted-foreground">
+                <p className="mb-4 flex-1 text-sm text-muted-foreground">
                   {service.description[locale]}
                 </p>
                 <span className="inline-flex items-center gap-1 text-sm font-medium text-primary">

@@ -5,28 +5,14 @@ import { serviceSchema } from "@/schemas/service";
 describe("contactFormSchema", () => {
   it("validates a correct form submission", () => {
     const result = contactFormSchema.safeParse({
-      name: "Иван",
-      phone: "+7 495 123 4567",
-      email: "ivan@example.com",
-      message: "Нужна консультация",
+      message: "Нужна консультация по отоплению",
     });
     expect(result.success).toBe(true);
   });
 
-  it("rejects invalid email", () => {
+  it("rejects empty message", () => {
     const result = contactFormSchema.safeParse({
-      name: "Иван",
-      phone: "+7 495 123 4567",
-      email: "not-an-email",
-    });
-    expect(result.success).toBe(false);
-  });
-
-  it("rejects short name", () => {
-    const result = contactFormSchema.safeParse({
-      name: "И",
-      phone: "+7 495 123 4567",
-      email: "ivan@example.com",
+      message: "",
     });
     expect(result.success).toBe(false);
   });

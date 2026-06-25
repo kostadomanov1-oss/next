@@ -7,16 +7,14 @@ export type ContactFormState = {
   error?: string;
 };
 
+const RECIPIENT_EMAIL = "kostadomanov1@gmail.com";
+
 export async function submitContactForm(
   _prevState: ContactFormState,
   formData: FormData,
 ): Promise<ContactFormState> {
   const raw = {
-    name: formData.get("name"),
-    phone: formData.get("phone"),
-    email: formData.get("email"),
     message: formData.get("message"),
-    service: formData.get("service"),
   };
 
   const result = contactFormSchema.safeParse(raw);
@@ -25,9 +23,10 @@ export async function submitContactForm(
     return { success: false, error: "validation_error" };
   }
 
-  // In a real app, send email / save to DB here.
-  // For the reference architecture, we simulate success.
-  await new Promise((resolve) => setTimeout(resolve, 500));
+  // Log the submission (in production, integrate with an email service
+  // like Resend, SendGrid, or Nodemailer with SMTP)
+  console.log(`[Contact Form] New submission to ${RECIPIENT_EMAIL}:`);
+  console.log(`Message: ${result.data.message}`);
 
   return { success: true };
 }

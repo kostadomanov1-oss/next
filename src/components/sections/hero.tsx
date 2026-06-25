@@ -9,7 +9,7 @@ export function HeroSection() {
   return (
     <section className="relative overflow-hidden py-24 lg:py-32">
       <Image
-        src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1600&q=80"
+        src="https://picsum.photos/seed/engineering/1600/900"
         alt=""
         fill
         className="object-cover"
